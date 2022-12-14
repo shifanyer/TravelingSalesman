@@ -1,40 +1,24 @@
 import java.util.*;
 
 public class Main {
+
+    private static final int POPULATION_SIZE = 4;
+    private static final int GEN_LENGTH = 5;
+    private static final int[][] MATRIX = {
+            {0, 4, 6, 2, 9},
+            {4, 0, 3, 2, 9},
+            {6, 3, 0, 5, 9},
+            {2, 2, 5, 0, 8},
+            {9, 9, 9, 8, 0},
+    };
+
     public static void main(String[] args) {
 
-        int[][] matrix = {
-                {0, 4, 6, 2, 9},
-                {4, 0, 3, 2, 9},
-                {6, 3, 0, 5, 9},
-                {2, 2, 5, 0, 8},
-                {9, 9, 9, 8, 0},
-        };
-
-        int populationSize = 4;
-        int genLength = 5;
-
-        Population population = new Population(matrix, genPopulation(populationSize, genLength));
-
-        Gen gen1 = new Gen("12345");
-        Gen gen2 = new Gen("54231");
-
-//        gen1.getChildren(gen2);
+        Population population = new Population(MATRIX, genPopulation(POPULATION_SIZE, GEN_LENGTH));
 
         System.out.println(population.getOptima().getA().getGen());
         System.out.println(population.getOptima().getB());
 
-//        population.printGens();
-
-    }
-
-    private static String to5Symbols(String s) {
-        StringBuilder sBuilder = new StringBuilder(s);
-        while (sBuilder.length() < 5) {
-            sBuilder.insert(0, "0");
-        }
-        s = sBuilder.toString();
-        return s;
     }
 
     private static String genGen(int genLength) {

@@ -32,7 +32,9 @@ public class Population {
 
         for (int i = 0; i < 10; i++) {
             cleanDuplicates();
+
             Collections.sort(gensWithLen, new PairComparator());
+            removeExtra();
 
             Gen parent1 = gensWithLen.get(0).getA();
             Gen parent2 = gensWithLen.get(1).getA();
@@ -47,8 +49,8 @@ public class Population {
             Gen child3 = childrenList2.get(0);
             Gen child4 = childrenList2.get(1);
 
-            removeExtra();
-            
+
+
             gensWithLen.add(new Pair<>(child1, calculatePathLength(child1)));
             gensWithLen.add(new Pair<>(child2, calculatePathLength(child2)));
             gensWithLen.add(new Pair<>(child3, calculatePathLength(child3)));

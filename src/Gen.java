@@ -71,11 +71,11 @@ public class Gen {
 
         Random rand = new Random();
         if (rand.nextInt(PROBABILITY_100) < MUTATE_PROBABILITY) {
-            int firstLetter = rand.nextInt(genSize);
-            int secondLetter = rand.nextInt(genSize);
-            int letter = child.get(firstLetter);
-            child.set(firstLetter, child.get(secondLetter));
-            child.set(secondLetter, letter);
+            int firstNumber = rand.nextInt(genSize);
+            int secondNumber = rand.nextInt(genSize);
+            int number = child.get(firstNumber);
+            child.set(firstNumber, child.get(secondNumber));
+            child.set(secondNumber, number);
         }
 
         String stringGen = String.join("", child.stream().map(Object::toString).toList());

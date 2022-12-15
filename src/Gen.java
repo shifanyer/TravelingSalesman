@@ -2,6 +2,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Gen {
+    private static final int MUTATE_PROBABILITY = 1;
+    private static final int PROBABILITY_100 = 100;
     private final String gen;
     private final List<Integer> genList;
     private final Integer genSize;
@@ -65,6 +67,15 @@ public class Gen {
                 usedNums.add(num);
                 currentEmptyPoint = child.indexOf(-1);
             }
+        }
+
+        Random rand = new Random();
+        if (rand.nextInt(PROBABILITY_100) < MUTATE_PROBABILITY) {
+            int firstLetter = rand.nextInt(genSize);
+            int secondLetter = rand.nextInt(genSize);
+            int letter = child.get(firstLetter);
+            child.set(firstLetter, child.get(secondLetter));
+            child.set(secondLetter, letter);
         }
 
         String stringGen = String.join("", child.stream().map(Object::toString).toList());

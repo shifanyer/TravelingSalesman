@@ -18,6 +18,7 @@ public class Main {
 
         System.out.println(population.getOptima().getA().getGen());
         System.out.println(population.getOptima().getB());
+        System.out.println();
 
     }
 

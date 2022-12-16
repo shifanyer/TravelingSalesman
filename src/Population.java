@@ -49,8 +49,6 @@ public class Population {
             Gen child3 = childrenList2.get(0);
             Gen child4 = childrenList2.get(1);
 
-
-
             gensWithLen.add(new Pair<>(child1, calculatePathLength(child1)));
             gensWithLen.add(new Pair<>(child2, calculatePathLength(child2)));
             gensWithLen.add(new Pair<>(child3, calculatePathLength(child3)));

@@ -16,8 +16,9 @@ public class Main {
 
         Population population = new Population(MATRIX, genPopulation(POPULATION_SIZE, GEN_LENGTH));
 
-        System.out.println(population.getOptima().getA().getGen());
-        System.out.println(population.getOptima().getB());
+        Pair<Gen, Integer> optimaPath = population.getOptima();
+        System.out.println(optimaPath.getA().getGen());
+        System.out.println(optimaPath.getB());
         System.out.println();
 
     }
